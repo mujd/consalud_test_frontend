@@ -7,7 +7,7 @@
 ##### Con Docker
 
 -  Clonar repositorio
--  Para levantar el proyecto usa el comando `docker build -t consalud_test_front .` 
+-  Para levantar el proyecto usa el comando `docker build -t consalud_test_front .` y despues el comando `docker run -p 3000:3000 consalud_test_front`
 
 ---
 
