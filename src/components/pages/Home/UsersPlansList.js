@@ -3,7 +3,7 @@ import { format } from 'rut.js';
 import Swal from 'sweetalert2';
 import { deleteUserPlanAction } from '../../../actions/plans';
 import { formatMoney } from '../../../helpers';
-import { BiTrash, ImSpinner2 } from '../../ui/icons';
+import { BiTrash } from '../../ui/icons';
 
 export const UsersPlansList = ({ usersPlans }) => {
    const dispatch = useDispatch();
@@ -18,8 +18,6 @@ export const UsersPlansList = ({ usersPlans }) => {
       }).then((result) => {
          if (result.value) {
             dispatch(deleteUserPlanAction(user._id));
-            // For more information about handling dismissals please visit
-            // https://sweetalert2.github.io/#handling-dismissals
          } else if (result.dismiss === Swal.DismissReason.cancel) {
             Swal.fire(
                'Cancelado',
@@ -83,12 +81,15 @@ export const UsersPlansList = ({ usersPlans }) => {
                   ))
                ) : (
                   <tr>
-                     <td className="border px-8 py-4" colSpan="4">
+                     <td className="border px-8 py-4" colSpan="6">
                         <div className="w-full flex justify-center items-center">
-                           <div className="flex flex-row items-center justify-between">
+                           <span className="font-semibold text-lg">
+                              No hay planes de usuarios ingresados
+                           </span>
+                           {/* <div className="flex flex-row items-center justify-between">
                               <ImSpinner2 className="animate-spin mr-2 text-lg" />{' '}
                               <span>Cargando</span>
-                           </div>
+                           </div> */}
                         </div>
                      </td>
                   </tr>
